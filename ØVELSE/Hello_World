@@ -1,0 +1,16 @@
+html 
+<!DOCTYPE html<
+<html>
+    <head>
+        <title>Min første JavaScript</title>
+        </head>
+        <body>
+            <h1>Hei!<h1>
+                <Script>
+                    //Dette er JavaScript
+                    alert("Hello, World!")
+                    </Script>
+                    </body>
+                    </html></h1></Script></h1></h1></body></title>
+    </head>
+</html>

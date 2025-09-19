@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" style="display: table; margin: auto;">
+<html lang="no" style="display: table; margin: auto;">
 <head>
-  <meta charset="UTF-8">
-  <title>Submission 2.1</title>
+  <meta charset="UTF-8" />
+  <title>Elinor's Variabler</title>
+<style>
+#knappen {
+  background-color:rgb(73, 168, 168);
+  color:bisque;
+  padding: 10px 20px;
+  border: 2px solid black; 
+  border-radius: 25px; 
+  box-shadow: 0px 0px 10px 20px rgba(199, 77, 77, 0.5);
+
+}
+#knappen:hover {
+    box-shadow: 0px 0px 10px 20px rgb(206, 1, 1);
+}
+</style>
+
 </head>
 <body>
-<script>
-  /* write your code below this line  🙂 */
+   <button id ="knappen" onclick="visMelding()">Knappen</button>
+  <h1>Variabler Task 2-1</h1>
+  <p>Jeg kan deklarere variabler med ulike typer.</p>
+  <p>Jeg kan deklarere mange variabler i separate statements.</p>
+  <p>Jeg kan deklarere mange variabler i en enkelt statement.</p>
+  <p id="demo"></p>
 
-</script>
+  <script>
+   
+  function visMelding() {
+    alert("Du vet hvilke kanpper du skal trykke på");
+  }
+
+    // Part 3: Ulike variabler og konstanter
+    let heltall = 42;
+    let desimaltall = 3.14;
+    let tekst = "Hei, verden!";
+    const konstantTekst = "Jeg er en konstant tekst";
+    const konstantTall = 100;
+
+    // Objekt med variabler inni
+    let person = {
+      navn: "Elinor",
+      alder: 25,
+      interesser: ["programmering", "matlaging", "fotball"]
+    };
+
+    // Flere variabler i en linje
+    let bil1 = "Volvo", pris1 = 150000;
+    let bil2 = "Toyota", pris2 = 120000;
+
+    // Skrive ut informasjon til konsollen
+    console.log(bil1 + " koster " + pris1 + " kr.");
+    console.log(bil2 + " koster " + pris2 + " kr.");
+
+    // Vise noe på siden
+    document.getElementById("demo").innerHTML = bil1 + " koster " + pris1 + " kr.<br>" + bil2 + " koster " + pris2 + " kr.<br>";
+
+    // Part 4: Lage variabel uten let/const/var (implicit global)
+    valuePI = 3.14; 
+
+    console.log("ValuePI uten deklarasjon: " + valuePI);
+
+    // Part 5: Prøve å endre konstant
+    try {
+      konstantTall = 200; 
+    } catch (error) {
+      console.error("Feil ved å endre konstant: ", error);
+      document.getElementById("demo").innerHTML += "<br>Feil ved å endre konstant: " + error.message;
+    }
+
+  </script>
 </body>
 </html>
