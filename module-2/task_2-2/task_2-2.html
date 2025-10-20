@@ -12,31 +12,33 @@
     <ol>
       <li>Where should you use constants, and where should you use variables? Can they all be constants?</li>
       <p>
-				[Replace this with you answer]
+				[Du burde bruke konst på verdier som skal forbli de samme, siden disse ikke kan endres senere i koden. Konst brukes som en forsikring om at verdien ikke endres senere. Du burde bruke variabler for verdier som må kunne endres senere i koden f.eks kan det brukes i kalkulering og beregning, til manipulasjon av tekst, og logiske operasjoner. ]
 			</p>
       <li>How do parentheses affect the arithmetic outcome of an expression?</li>
       <p>
-				[Replace this with you answer]
+				[Parenteser brukes til å styre rekkefølgen på utregningene i et uttrykk. De sørger for at det som står inni parentesene blir regnet ut først, uavhengig av vanlig regnerekkefølge. Dette kan endre resultatet]
 			</p>
       <li>How do we limit floating-point numbers to a given number of decimals?</li>
       <p>
-				[Replace this with you answer]
+				[Man kan bruke. toFixed() for å begrense antall desimaler i et tall. Den returnerer en streng med ønsket antall desimaler.]
 			</p>
       <li>How can we compare two floating-point values to see if they are equal (is 12.199999 the same as 12.2)?</li>
       <p>
-				[Replace this with you answer]
+				[]Flyttall er ofte unøyaktige på grunn av hvordan de lagres i datamaskinen. Derfor bør vi ikke bruke == direkte, men heller sammenligne om forskjellen mellom tallene er liten nok.
 			</p>
       <li>What do comparison operators return, and how can we check if they are FALSE or TRUE?</li>
       <p>
-				[Replace this with you answer]
+				[Sammenligningsoperatorer (som ==, ===, !=, <, >, <=, >=) returnerer en boolean-verdi: enten true eller false.
+Du kan bruke en if-setning for å sjekke. 
+]
 			</p>
       <li>How does the Math.random() function work, and what can it be used for?</li>
       <p>
-				[Replace this with you answer]
+				[Math.random() returnerer et desimaltall mellom 0 (inkludert) og 1 (ikke inkludert), altså noe som: 0 <= tall < 1.]
 			</p>
       <li>What is modulus (%), and when do we need this operator in mathematical operations?</li>
       <p>
-				[Replace this with you answer]
+				[Modulus (%) gir oss resten etter en divisjon.]
 			</p>
     </ol>
 		<script type="module" src="./task_2-2.mjs" defer></script>
