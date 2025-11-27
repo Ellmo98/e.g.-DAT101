@@ -35,7 +35,6 @@ if (wakeUpTime === 7) {
 }
 
 printOut(newLine);
-
 const part1GuessNumber = 45; 
 let part1Random = Math.floor(Math.random() * 60) + 1;
 
