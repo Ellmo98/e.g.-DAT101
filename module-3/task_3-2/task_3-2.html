@@ -9,9 +9,29 @@
     <div style="padding: 10px; min-width: 512px; border: darkblue thin solid; background-color: antiquewhite; font-family: 'Courier New', serif">
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
+    
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>1. In part 1, is it possible to solve the problem using a single "for" loop?</li>
+      <p>1.Ja det er mulig, man kan tvinge en for løkke til å gjøre begge deler ved å bygge inn to strenger i samme løkke. </p>
+         <li>2. In part 2, can we create what is known as an "infinite" loop within the condition of the "while" loop?
+Describe what would or would not be necessary to achieve this. Provide a thorough explanation of
+your answer.</li>
+      <p>2. Ja det er mulig å lage en evig løkke ved bruk av «while loop» så lenge den aldri blir «false» . En løkke gjentas så lenge betingelsen alltid er sann. Her er et eksempel jeg fikk av Chatgpt av en evig løkke:
+While (true)   {  }
+While (1===1)   {  }
+I konteksten av en gjettelek f.eks blir løkken evig hvis det gjettede nummeret aldri endres, det hemmelige nummeret er umulig å nå, det er ingen kode inni løkka som oppdaterer gjettet, eller hvis betingelsen er skrevet feil så den aldri bli usann. 
+For å unngå en evig løkke må vi passe på at programmet oppdaterer gjettet hver runde av løkken frem til gjettet matcher det hemmelige nummeret og stopper der.
+</p>
+            <li>3. Discuss briefly how quickly or slowly a computer might be able to compute this, considering the
+number of guesses and the time it takes. How does the program behave while it is guessing? Can
+the program perform other tasks concurrently?</li>
+      <p>3. En datamaskin er veldig rask på å gjenta enkle oppgaver, så selv tusenvis av random gjett kan gjennomføres i løpet av en brøkdel av et sekund. Men det kommer jo selvsagt litt av på hvor mange gjett datamaskinen må gjennom hvor lang tid det tar. Datamaskinen kan jo også være «heldig» å treffe før den har hvert gjennom alle gjett. CPU hastighet har også litt å si på hvor fort det går. 
+Mens programmet kjører gjennom løkken kan ikke JavaScript motoren foreta seg noen andre oppgaver. Så mens løkken kjører kan siden fremstå som fryst. Dette er fordi den bare kan gjøre en oppgave av gangen. 
+</p>
+         <li>4. Explain the relationship between rows and columns in nested "for" loops. Can we, for instance,
+change the order, considering rows to be innermost or columns to be innermost, or does this not
+matter?</li>
+      <p>4. Den ytre løkken styrer radene, mens den indre løkken styrer kolonnene. Den indre løkken kjøres fullstendig for hver eneste gjennomgang av den ytre løkken. Ja man kan endre rekkefølgen, men rekkefølgen avgjør hvordan resultatet blir strukturert, altså du får forskjellige utskriftsmønstre.</p>
     </ol>
     <script type="module" src="./task_3-2.mjs" defer></script>
   </body>
