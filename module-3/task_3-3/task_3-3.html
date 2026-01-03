@@ -4,14 +4,48 @@
     <meta charset="UTF-8" />
     <title>Task 3.3</title>
   </head>
-  <body style="display: table-cell; vertical-align: middle">
+  <body style="display: table-cell; vertical-align: middle; background-color: magenta;"> 
+    {
+ 
+}
     <h2><label for="txtOut">Output from Task 3.3:</label></h2>
-    <div style="padding: 10px; min-width: 512px; border: darkblue thin solid; background-color: antiquewhite; font-family: 'Courier New', serif">
+    <div style="padding: 10px; min-width: 512px; border: rgb(255, 255, 255) thin solid; background-color: rgb(246, 136, 218); font-family: 'Courier New', serif">
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      Discussion Questions:
+
+
+
+
+      <li>1. What is the difference between invoking and creating a function?</li>
+      <p>Creating a function means defining it and giving it a name, parameters, and a code block. The function is not executed when it is created.
+Invoking a function means calling it by its name followed by parentheses, which causes the code inside the function to run.
+</p>
+      <li>2. Explain the syntax regarding semicolons and code blocks. </li>
+      <p>Semicolons are used to end JavaScript statements, but they are not used after function declarations or code blocks.
+Code blocks are defined using curly braces {} and contain the statements that belong to a function, loop, or condition.
+ </p>
+      <li>3. What happens when we try to store values from a function when it doesn't return any?</li>
+      <p> If a function does not return a value, JavaScript automatically returns undefined.
+Storing the result of such a function in a variable will give that variable the value undefined.
+</p>
+      <li>4. How do we separate parameters from each other when creating a function?</li>
+      <p>Parameters are separated using commas inside the parentheses of the function definition.
+Example: function example(param1, param2, param3) {}
+ </p>
+      <li>5. Explain how parameter names are related during the invocation and creation of a function.</li>
+      <p>The parameter names used when creating a function act as placeholders.
+When invoking the function, the values passed in are assigned to these parameters in the same order, regardless of the variable names used during the call.
+ </p>
+      <li>6. Explain why a parameter is undefined when a function call is missing a parameter.</li>
+      <p> If a function is called with fewer arguments than parameters, the missing parameters are automatically set to undefined by JavaScript.</p>
+      <li>7. Explain what happens when we use recursive functions.</li>
+      <p>A recursive function calls itself to solve a problem.
+To avoid infinite loops, it must include a stopping condition (base case).
+Each call reduces the problem until the base case is reached, after which the function returns values back through the call stack.
+ </p>
+
     </ol>
     <script type="module" src="./task_3-3.mjs" defer></script>
   </body>
