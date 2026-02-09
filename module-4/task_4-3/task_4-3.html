@@ -5,6 +5,51 @@
   <title>Task 4.3</title>
 </head>
 <body style="display: table-cell; vertical-align: middle;">
+  <style>
+body {
+  background-color: #ffe6f0; /* Lys rosa bakgrunn */
+  color: #4d004d;            /* Mørk lilla tekst */
+  font-family: Arial, sans-serif;
+}
+
+fieldset {
+  background-color: #fff0f5;
+  border: 2px solid #ff66b2;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+input[type="button"] {
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #ff3399;
+}
+
+table, th, td {
+  border: 1px solid #ff99cc;
+  border-collapse: collapse;
+  padding: 0.4em;
+  text-align: center;
+}
+
+th {
+  background-color: #ff66b2;
+  color: white;
+}
+
+tr:hover {
+  background-color: #ffd6eb;
+}
+</style>
+
 <h2>Task 4.3:</h2>
 <p></p>
 <fieldset>
@@ -32,7 +77,7 @@
   <label><input type="checkbox" name="chkTask3" value="1">1: Cat is an animal!<br/></label>
   <label><input type="checkbox" name="chkTask3" value="2">2: Volvo is a car!<br/></label>
   <label><input type="checkbox" name="chkTask3" value="3">3: Rose is a flower!<br/></label>
-  <label><input type="checkbox" name="chkTask3" value="4">4: Donald Trump is a human being!<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="4">4: Donald Trump is a bad human.<br/></label>
   <label><input type="checkbox" name="chkTask3" value="5">5: Dette er en test<br/></label>
   <input type="button" id="cmbTask3CheckAnswer" value="Check Answer!"><br/>
   <p id="txtTask3Output"></p>
@@ -97,8 +142,20 @@
   </div>
 </fieldset>
 <ol>
-  <li>[Write the question here, and copy this for more questions]</li>
-  <p>[Write your answer here, and copy this for more answers]</p>
+  <ol>
+  <li>Hvordan kan DOM hjelpe oss utvikle interaktive nettsider?</li>
+  <p>DOM gjør det mulig for JavaScript å hente, endre og opprette elementer dynamisk. Dette gjør nettsider interaktive og reagerer på brukerhandlinger som tastetrykk, klikk og valg.</p>
+  
+  <li>Hva er et event? Forklar enkelt hva som skjer når vi legger til en event listener.</li>
+  <p>Et event er en handling i nettleseren, som et klikk eller tastetrykk. En event listener kjører en funksjon hver gang den hendelsen skjer.</p>
+  
+  <li>Forklar event-objektet og hvordan vi kan hente data fra det.</li>
+  <p>Event-objektet gir informasjon om hendelsen, som hvilken tast som ble trykket eller hvilken musposisjon som ble brukt. Vi kan bruke f.eks. event.key eller event.target for å hente data.</p>
+  
+  <li>Forklar hovedforskjellen mellom DOM id og DOM name. Kan vi ha identiske IDs?</li>
+  <p>id er unik og kan kun brukes én gang per side. name kan brukes på flere elementer, og brukes ofte for grupper som radioknapper. Flere elementer kan ikke ha samme id.</p>
+</ol>
+
 </ol>
 <script type="module" src="./task_4-3.mjs" defer></script>
 </body>

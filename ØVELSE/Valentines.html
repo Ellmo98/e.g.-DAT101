@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Valentines 💌</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .mail, .page2 {
+        background: white;
+        width: 350px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    a {
+        color: #0066cc;
+        cursor: pointer;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #yesBtn {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #noBtn {
+        background: #ccc;
+        position: absolute;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        position: relative;
+        height: 150px;
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="mail" id="mail">
+    <p><strong>Kjære CEO, BDD, Henrik Åsen,</strong></p>
+    <p>Trykk på denne linken. Mvh PHD, CEO Ellie Moen</p>
+    <a onclick="openPage()">Åpne scam link💌</a>
+</div>
+
+<div class="page2 hidden" id="page2">
+    <h2>Vil du være min valentines? 💘</h2>
+    <div class="buttons">
+        <button id="yesBtn" onclick="celebrate()">Ja</button>
+        <button id="noBtn">Nei</button>
+    </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+
+    function openPage() {
+        document.getElementById("mail").classList.add("hidden");
+        document.getElementById("page2").classList.remove("hidden");
+        moveNoButton();
+    }
+
+    function moveNoButton() {
+        const x = Math.random() * 250;
+        const y = Math.random() * 100;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+    // Hjerte-konfetti ❤️
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let hearts = [];
+
+    function celebrate() {
+        for (let i = 0; i < 100; i++) {
+            hearts.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 20 + 10,
+                speed: Math.random() * 3 + 2
+            });
+        }
+        animate();
+    }
+
+    function drawHeart(x, y, size) {
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.bezierCurveTo(x - size, y - size, x - size * 2, y + size / 3, x, y + size);
+        ctx.bezierCurveTo(x + size * 2, y + size / 3, x + size, y - size, x, y);
+        ctx.fill();
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hearts.forEach(h => {
+            drawHeart(h.x, h.y, h.size);
+            h.y += h.speed;
+        });
+        requestAnimationFrame(animate);
+    }
+</script>
+
+</body>
+</html>

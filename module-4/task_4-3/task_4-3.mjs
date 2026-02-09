@@ -1,67 +1,153 @@
+"use Strict";
 "use strict";
 
-const CarTypes = [
-  { value: 1, caption: "Aston Martin" },
-  { value: 2, caption: "Bentley" },
-  { value: 3, caption: "Alfa Romeo" },
-  { value: 4, caption: "Ferrari" },
-  { value: 5, caption: "Subaru" },
-  { value: 6, caption: "Porsche" },
-  { value: 7, caption: "Tesla" },
-  { value: 8, caption: "Toyota" },
-  { value: 9, caption: "Renault" },
-  { value: 10, caption: "Peugeot" },
-  { value: 11, caption: "Suzuki" },
-  { value: 12, caption: "Mitsubishi" },
-  { value: 13, caption: "Nissan" },
-];
+// --- Part 1: Rectangle Calculations ---
+const txtBredde = document.getElementById("txtRectWidth");
+const txtHoyde = document.getElementById("txtRectHeight");
+const txtResultat1 = document.getElementById("txtTask1Output");
+const btnBeregne = document.getElementById("cmbTask1Calculate");
 
-const GirlsNames = ["Anne", "Inger", "Kari", "Marit", "Ingrid", "Liv", "Eva", "Berit", "Astrid", "Bjørg", "Hilde", "Anna", "Solveig", "Marianne", "Randi", "Ida", "Nina", "Maria", "Elisabeth", "Kristin"];
+btnBeregne.addEventListener("click", () => {
+    const bredde = Number(txtBredde.value);
+    const hoyde = Number(txtHoyde.value);
+    const omkrets = 2 * (bredde + hoyde);
+    const areal = bredde * hoyde;
+    txtResultat1.innerText = "Omkrets = " + omkrets + ", Areal = " + areal;
+});
 
-const MovieGenre = [
-  "Action",
-  "Adventure",
-  "Animation",
-  "Biography",
-  "Comedy",
-  "Crime",
-  "Documentary",
-  "Drama",
-  "Family",
-  "Fantasy",
-  "Film Noir",
-  "History",
-  "Horror",
-  "Music",
-  "Musical",
-  "Mystery",
-  "Romance",
-  "Sci-Fi",
-  "Short",
-  "Sport",
-  "Superhero",
-  "Thriller",
-  "War",
-  "Western",
-];
+// --- Part 2: Dynamic Word List ---
+const txtOrdInput = document.getElementById("txtTask2Word");
+const txtResultat2 = document.getElementById("txtTask2Output");
+const listeOrd = [];
 
-//--- Part 1 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+txtOrdInput.addEventListener("keypress", (event) => {
+    if(event.key === "Enter") {
+        listeOrd.push(txtOrdInput.value);
+        txtResultat2.innerText = "Antall ord = " + listeOrd.length + " | " + listeOrd.join(", ");
+        txtOrdInput.value = "";
+    }
+});
 
-//--- Part 2 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+// --- Part 3: Checkbox Evaluation ---
+// --- Part 3: Checkbox Evaluation ---
+const checkbokser = document.querySelectorAll('input[name="chkTask3"]');
+const btnSjekk = document.getElementById("cmbTask3CheckAnswer");
+const txtResultat3 = document.getElementById("txtTask3Output");
 
-//--- Part 3 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+// Definer hvilke alternativer som er sanne
+const sannhet = {
+    "1": true,   // "Cat is an animal!" → sant
+    "2": true,   // "Volvo is a car!" → sant
+    "3": true,   // "Rose is a flower!" → sant
+    "4": true,   // "Donald Trump is a human being!" → sant
+    "5": false   // "Dette er en test" → usant
+};
 
-//--- Part 4 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+btnSjekk.addEventListener("click", () => {
+    let resultatTekst = "";
 
-//--- Part 5 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+    checkbokser.forEach(cb => {
+        if(cb.checked) {
+            const erSant = sannhet[cb.value];
+            resultatTekst += cb.value + ": " + (erSant ? "Sant" : "Ikke sant") + "\n";
+        }
+    });
 
-//--- Part 6 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+    if(resultatTekst === "") resultatTekst = "Ingen valg";
+    txtResultat3.innerText = resultatTekst;
+});
 
-//--- Part 7 ----------------------------------------------------------------------------------------------
-/* Put your code below here!*/
+
+// --- Part 4: Radio Button Selection ---
+const bilTyper = ["Volvo", "BMW", "Toyota", "Tesla"];
+const divBiler = document.getElementById("divTask4Cars");
+const txtResultat4 = document.getElementById("txtTask4Output");
+
+bilTyper.forEach((bil, indeks) => {
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "rbBiler";
+    radio.value = bil;
+    radio.id = "rbBil" + indeks;
+
+    const label = document.createElement("label");
+    label.htmlFor = radio.id;
+    label.innerText = bil;
+
+    divBiler.appendChild(radio);
+    divBiler.appendChild(label);
+    divBiler.appendChild(document.createElement("br"));
+
+    radio.addEventListener("change", () => {
+        if(radio.checked) txtResultat4.innerText = "Valgt bil: " + radio.value;
+    });
+});
+
+// --- Part 5: Dropdown Selection ---
+const selectDyr = document.getElementById("selectTask5Animals");
+const txtResultat5 = document.getElementById("txtTask5Output");
+
+selectDyr.addEventListener("change", () => {
+    txtResultat5.innerText = "Valgt dyr: " + selectDyr.options[selectDyr.selectedIndex].text;
+});
+
+// --- Part 6: Dynamic Dropdown & Selection ---
+const jentenavn = ["Anne", "Inger", "Kari", "Marit", "Ingrid", "Liv", "Eva", "Berit", "Astrid"];
+const selectJenter = document.getElementById("selectTask6Girls");
+const txtResultat6 = document.getElementById("txtTask6Output");
+
+jentenavn.forEach(navn => {
+    const option = document.createElement("option");
+    option.value = navn;
+    option.textContent = navn;
+    selectJenter.appendChild(option);
+});
+
+selectJenter.addEventListener("change", () => {
+    txtResultat6.innerText = "Du valgte: " + selectJenter.value;
+});
+
+// --- Part 7: Table Population ---
+const txtFilmTittel = document.getElementById("txtMovieTitle");
+const selectSjanger = document.getElementById("selectMovieGenre");
+const txtRegissor = document.getElementById("txtMovieDirector");
+const txtRating = document.getElementById("txtMovieRate");
+const btnLeggTilFilm = document.getElementById("cmbAddMovie");
+const tabell = document.getElementById("tblMovies");
+
+// Populate genres dynamically
+const filmSjangerListe = ["Action", "Drama", "Komedi", "Thriller", "Sci-Fi"];
+filmSjangerListe.forEach(sjanger => {
+    const option = document.createElement("option");
+    option.value = sjanger;
+    option.textContent = sjanger;
+    selectSjanger.appendChild(option);
+});
+
+let filmNr = 1;
+
+btnLeggTilFilm.addEventListener("click", () => {
+    const rad = document.createElement("tr");
+
+    const celler = [
+        filmNr,
+        txtFilmTittel.value,
+        selectSjanger.value,
+        txtRegissor.value,
+        txtRating.value
+    ];
+
+    celler.forEach(verdi => {
+        const td = document.createElement("td");
+        td.innerText = verdi;
+        rad.appendChild(td);
+    });
+
+    tabell.appendChild(rad);
+    filmNr++;
+
+    // Clear input fields
+    txtFilmTittel.value = "";
+    txtRegissor.value = "";
+    txtRating.value = "5";
+});
