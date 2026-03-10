@@ -184,7 +184,22 @@ export class TSpriteCanvas {
       // Notify old active sprite of mouse leave
       if (this.#activeGUISprite) {
         const newEvent = {
-          ...aEvent,
+          type: aEvent.type,
+          button: aEvent.button,
+          buttons: aEvent.buttons,
+          clientX: aEvent.clientX,
+          clientY: aEvent.clientY,
+          pageX: aEvent.pageX,
+          pageY: aEvent.pageY,
+          screenX: aEvent.screenX,
+          screenY: aEvent.screenY,
+          altKey: aEvent.altKey,
+          ctrlKey: aEvent.ctrlKey,
+          shiftKey: aEvent.shiftKey,
+          metaKey: aEvent.metaKey,
+          timeStamp: aEvent.timeStamp,
+          bubbles: aEvent.bubbles,
+          cancelable: aEvent.cancelable,
           target: this,
           x: this.#mousePos.x,
           y: this.#mousePos.y,
@@ -198,8 +213,23 @@ export class TSpriteCanvas {
       // Notify new active sprite of mouse enter
       if (newActiveGUISprite) {
         const newEvent = {
-          ...aEvent,
-          target: this,
+          type: aEvent.type,
+          button: aEvent.button,
+          buttons: aEvent.buttons,
+          clientX: aEvent.clientX,
+          clientY: aEvent.clientY,
+          pageX: aEvent.pageX,
+          pageY: aEvent.pageY,
+          screenX: aEvent.screenX,
+          screenY: aEvent.screenY,
+          altKey: aEvent.altKey,
+          ctrlKey: aEvent.ctrlKey,
+          shiftKey: aEvent.shiftKey,
+          metaKey: aEvent.metaKey,
+          timeStamp: aEvent.timeStamp,
+          bubbles: aEvent.bubbles,
+          cancelable: aEvent.cancelable,
+          target: newActiveGUISprite,
           x: this.#mousePos.x,
           y: this.#mousePos.y,
         };
@@ -214,8 +244,23 @@ export class TSpriteCanvas {
   #cvsMouseClick(aEvent) {
     if (this.#activeGUISprite) {
       const newEvent = {
-        ...aEvent,
-        target: this,
+        type: aEvent.type,
+        button: aEvent.button,
+        buttons: aEvent.buttons,
+        clientX: aEvent.clientX,
+        clientY: aEvent.clientY,
+        pageX: aEvent.pageX,
+        pageY: aEvent.pageY,
+        screenX: aEvent.screenX,
+        screenY: aEvent.screenY,
+        altKey: aEvent.altKey,
+        ctrlKey: aEvent.ctrlKey,
+        shiftKey: aEvent.shiftKey,
+        metaKey: aEvent.metaKey,
+        timeStamp: aEvent.timeStamp,
+        bubbles: aEvent.bubbles,
+        cancelable: aEvent.cancelable,
+        target: this.#activeGUISprite,
         x: this.#mousePos.x,
         y: this.#mousePos.y,
       };
@@ -229,8 +274,23 @@ export class TSpriteCanvas {
     this.#mouseDownGUISprite = this.#activeGUISprite;
     if (this.#mouseDownGUISprite) {
       const newEvent = {
-        ...aEvent,
-        target: this,
+        type: aEvent.type,
+        button: aEvent.button,
+        buttons: aEvent.buttons,
+        clientX: aEvent.clientX,
+        clientY: aEvent.clientY,
+        pageX: aEvent.pageX,
+        pageY: aEvent.pageY,
+        screenX: aEvent.screenX,
+        screenY: aEvent.screenY,
+        altKey: aEvent.altKey,
+        ctrlKey: aEvent.ctrlKey,
+        shiftKey: aEvent.shiftKey,
+        metaKey: aEvent.metaKey,
+        timeStamp: aEvent.timeStamp,
+        bubbles: aEvent.bubbles,
+        cancelable: aEvent.cancelable,
+        target: this.#mouseDownGUISprite,
         x: this.#mousePos.x,
         y: this.#mousePos.y,
       };
@@ -245,8 +305,23 @@ export class TSpriteCanvas {
     if (this.#mouseUpGUISprite && this.#mouseUpGUISprite === this.#mouseDownGUISprite) {
       // Only trigger mouse up if the mouse is still over the same sprite that received mousedown
       const newEvent = {
-        ...aEvent,
-        target: this,
+        type: aEvent.type,
+        button: aEvent.button,
+        buttons: aEvent.buttons,
+        clientX: aEvent.clientX,
+        clientY: aEvent.clientY,
+        pageX: aEvent.pageX,
+        pageY: aEvent.pageY,
+        screenX: aEvent.screenX,
+        screenY: aEvent.screenY,
+        altKey: aEvent.altKey,
+        ctrlKey: aEvent.ctrlKey,
+        shiftKey: aEvent.shiftKey,
+        metaKey: aEvent.metaKey,
+        timeStamp: aEvent.timeStamp,
+        bubbles: aEvent.bubbles,
+        cancelable: aEvent.cancelable,
+        target: this.#mouseUpGUISprite,
         x: this.#mousePos.x,
         y: this.#mousePos.y,
       };
@@ -266,8 +341,23 @@ export class TSpriteCanvas {
   #cvsMouseLeave(aEvent) {
     if (this.#activeGUISprite) {
       const newEvent = {
-        ...aEvent,
-        target: this,
+        type: aEvent.type,
+        button: aEvent.button,
+        buttons: aEvent.buttons,
+        clientX: aEvent.clientX,
+        clientY: aEvent.clientY,
+        pageX: aEvent.pageX,
+        pageY: aEvent.pageY,
+        screenX: aEvent.screenX,
+        screenY: aEvent.screenY,
+        altKey: aEvent.altKey,
+        ctrlKey: aEvent.ctrlKey,
+        shiftKey: aEvent.shiftKey,
+        metaKey: aEvent.metaKey,
+        timeStamp: aEvent.timeStamp,
+        bubbles: aEvent.bubbles,
+        cancelable: aEvent.cancelable,
+        target: this.#activeGUISprite,
         x: this.#mousePos.x,
         y: this.#mousePos.y,
       };
@@ -395,6 +485,7 @@ export class TSpriteCanvas {
    * @returns {boolean} True if the listener was added successfully, false otherwise.
    */
   addEventListener(aEventName, aHandler) {
+    this.#cvs.addEventListener(aEventName, aHandler);
     return this.#eventHandlers.addListener(aEventName, aHandler);
   }
 
@@ -403,6 +494,7 @@ export class TSpriteCanvas {
    * @param {string} aEventName - The name of the event.
    */
   removeEventListener(aEventName) {
+    this.#cvs.removeEventListener(aEventName, this.#eventHandlers.getHandler(aEventName));
     this.#eventHandlers.removeListener(aEventName);
   }
 
@@ -520,5 +612,14 @@ export class TSpriteCanvas {
       this.#cvs.style.cursor = "default";
     }
     this.#guiSprites = this.#guiSprites.filter((btn) => btn !== aGUISprite);
+  }
+
+  updateBoundsRect() {
+    this.#boundingRect = this.#cvs.getBoundingClientRect();
+  }
+
+  removeAllGUISprites() {
+    this.#activeGUISprite = null;
+    this.#guiSprites = [];
   }
 }
