@@ -1,0 +1,100 @@
+/* ===== Generelle stiler ===== */
+
+/* Høy kontrast for navbar */
+body.high-contrast .navbar {
+  background-color: black !important;   /* mørk bakgrunn */
+}
+
+body.high-contrast .navbar .nav-link,
+body.high-contrast .navbar .navbar-brand {
+  color: yellow !important;            /* gul tekst */
+  font-weight: bold;
+}
+
+/* Hvis du vil at navbar toggler-ikon også blir synlig */
+body.high-contrast .navbar-toggler-icon {
+  filter: invert(1); /* gjør ikonet synlig på mørk bakgrunn */
+}
+
+/* Høy kontrast + større tekst */
+body.high-contrast {
+  background-color: black !important;
+  color: yellow !important;
+  font-size: 1.2rem; /* gjør all tekst større */
+  line-height: 1.6; /* litt bedre lesbarhet */
+}
+
+/* Bakgrunn for seksjoner */
+body.high-contrast .bg-1,
+body.high-contrast .bg-2,
+body.high-contrast .bg-3 {
+  background-color: black !important;
+  color: yellow !important;
+}
+
+/* Kort */
+body.high-contrast .card {
+  background-color: black !important;
+  color: yellow !important;
+  font-size: 1.1rem; /* kortene får litt større tekst */
+}
+
+/* Lenker */
+body.high-contrast a {
+  color: yellow !important;
+  font-weight: bold; /* gjør lenkene mer synlige */
+}
+
+/* Footer */
+body.high-contrast footer {
+  background-color: black !important;
+  color: yellow !important;
+  font-size: 1.2rem;
+}
+
+/* Profilbilde ramme */
+body.high-contrast #profilbilde {
+  border: 3px solid yellow;
+}
+
+body{
+font-family: 'Roboto', sans-serif;
+margin:0;
+}
+
+
+.rounded-circle {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.spin {
+  animation: spin 1s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Gjør alle kortbilder like høyde */
+.card-img-top {
+  height: 200px;      /* juster høyden etter behov */
+  object-fit: cover;  /* beskytter proporsjoner og fyller hele rammen */
+  width: 100%;        /* fyller hele kortbredden */
+}
+
+
+.carousel-item img {
+  height: 400px;       /* juster etter behov */
+  width: 100%;         /* fyller bredden */
+  object-fit: cover;   /* beskytter proporsjoner, beskjærer litt om nødvendig */
+}
