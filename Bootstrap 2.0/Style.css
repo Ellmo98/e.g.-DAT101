@@ -1,30 +1,72 @@
-/* ===== Generelle stiler ===== */
-
-/* Høy kontrast for navbar */
-body.high-contrast .navbar {
-  background-color: black !important;   /* mørk bakgrunn */
+/* ===== Generelt ===== */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
-body.high-contrast .navbar .nav-link,
-body.high-contrast .navbar .navbar-brand {
-  color: yellow !important;            /* gul tekst */
-  font-weight: bold;
+/* ===== Bakgrunner ===== */
+.bg-1 { background-color: #033300; color: rgb(120, 251, 192); }
+.bg-2 { background-color: #055b00; color: #82feb1; }
+.bg-3 { background-color: #046f00; color: #98f8b3; }
+
+/* ===== Profilbilde ===== */
+.rounded-circle {
+  transition: transform 0.3s ease;
 }
 
-/* Hvis du vil at navbar toggler-ikon også blir synlig */
-body.high-contrast .navbar-toggler-icon {
-  filter: invert(1); /* gjør ikonet synlig på mørk bakgrunn */
+.rounded-circle:hover {
+  transform: scale(1.1);
 }
 
-/* Høy kontrast + større tekst */
+/* ===== Spin animasjon ===== */
+.spin {
+  animation: spin 1s linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Kortbilder ===== */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ===== Carousel ===== */
+.carousel-item img {
+  height: 700px;
+  object-fit: cover;
+}
+
+/* ===== Popup ===== */
+.popup-overlay {
+  display: none; /* skjult */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ===== Høy kontrast ===== */
 body.high-contrast {
-  background-color: black !important;
-  color: yellow !important;
-  font-size: 1.2rem; /* gjør all tekst større */
-  line-height: 1.6; /* litt bedre lesbarhet */
+  background-color: black !important;   /* gjør hele bakgrunnen svart */
+  color: yellow !important;             /* gjør all tekst gul */
+  font-size: 1.2rem;                     /* gjør teksten litt større */
+  line-height: 1.6;                      /* bedre lesbarhet */
 }
 
-/* Bakgrunn for seksjoner */
+/* Bakgrunner på seksjoner */
 body.high-contrast .bg-1,
 body.high-contrast .bg-2,
 body.high-contrast .bg-3 {
@@ -36,13 +78,13 @@ body.high-contrast .bg-3 {
 body.high-contrast .card {
   background-color: black !important;
   color: yellow !important;
-  font-size: 1.1rem; /* kortene får litt større tekst */
+  font-size: 1.1rem;
 }
 
 /* Lenker */
 body.high-contrast a {
   color: yellow !important;
-  font-weight: bold; /* gjør lenkene mer synlige */
+  font-weight: bold;
 }
 
 /* Footer */
@@ -54,47 +96,21 @@ body.high-contrast footer {
 
 /* Profilbilde ramme */
 body.high-contrast #profilbilde {
-  border: 3px solid yellow;
+  border: 5px solid yellow;
 }
 
-body{
-font-family: 'Roboto', sans-serif;
-margin:0;
+/* Navbar */
+body.high-contrast .navbar {
+  background-color: black !important;
 }
 
-
-.rounded-circle {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+body.high-contrast .navbar .nav-link,
+body.high-contrast .navbar .navbar-brand {
+  color: yellow !important;
+  font-weight: bold;
 }
 
-.rounded-circle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-.spin {
-  animation: spin 1s linear;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* Gjør alle kortbilder like høyde */
-.card-img-top {
-  height: 200px;      /* juster høyden etter behov */
-  object-fit: cover;  /* beskytter proporsjoner og fyller hele rammen */
-  width: 100%;        /* fyller hele kortbredden */
-}
-
-
-.carousel-item img {
-  height: 400px;       /* juster etter behov */
-  width: 100%;         /* fyller bredden */
-  object-fit: cover;   /* beskytter proporsjoner, beskjærer litt om nødvendig */
+/* Hamburger ikon */
+body.high-contrast .navbar-toggler-icon {
+  filter: invert(1);
 }

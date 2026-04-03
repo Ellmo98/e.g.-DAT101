@@ -1,129 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
+  <div id="kontakt" class="container-fluid bg-3 text-center py-5"></div>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ellies</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E.Krogh</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
-
-    <!-- Ekstern CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-      body { font-family: 'Roboto', sans-serif; }
-
-      .bg-1 { background-color: #002057; color: #ffffff; }
-      .bg-2 { background-color: #f2f2f2; color: #333333; }
-      .bg-3 { background-color: #e0e0e0; color: #000000; }
-
-      .spin { animation: spin 1s linear; }
-      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-      /* Høy kontrast */
-      .high-contrast { background-color: black !important; color: yellow !important; }
-      .high-contrast .card { background-color: black !important; color: yellow !important; }
-      .high-contrast a { color: yellow !important; }
-    </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
-
-<!-- Skip link -->
-<a class="skip-link" href="#kontaktinfo">Hopp til kontaktinfo</a>
-
-<!-- Høy kontrast knapp -->
-<button id="contrastBtn" class="btn btn-warning m-3" aria-label="Slå på høy kontrast">Høy kontrast</button>
-
+<!-- ===== NAVBAR / MENY ===== -->
 <header>
 <nav class="navbar navbar-expand-md navbar-light bg-light" aria-label="Hovedmeny">
   <div class="container">
+
     <a class="navbar-brand" href="#">Ellies</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-      aria-controls="navbarMenu" aria-expanded="false" aria-label="Åpne meny">
+
+    <button class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" 
+            aria-expanded="false" 
+            aria-label="Åpne meny">
+
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarMenu">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@goprotides1383">TinkerMods YouTube</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://tinkermods.no/en?srsltid=AfmBOopqbQnTX8y-sfWPvFa0pnGruOWgkHvepRrdTAcfBuwtpJI7AtnN">TinkerMods Nettbutikk</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://ekrogh.no/">E.Krogh</a></li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/@goprotides1383">
+            TinkerMods YouTube
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://tinkermods.no/en?srsltid=AfmBOopqbQnTX8y-sfWPvFa0pnGruOWgkHvepRrdTAcfBuwtpJI7AtnN">
+            TinkerMods Nettbutikk
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://ekrogh.no/">
+            E.Krogh
+          </a>
+        </li>
+
       </ul>
     </div>
+
   </div>
 </nav>
 </header>
 
-<!-- Profilbilde -->
+
+<!-- ===== POPUP ===== -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-box">
+    <h3>Liker du overaskelser?</h3>
+
+    <p id="svarTekst"></p>
+
+    <button onclick="svarJa()">Ja</button>
+    <button onclick="svarNei()">Nei</button>
+    <br><br>
+    <button onclick="togglePopup()">Lukk</button>
+  </div>
+</div>
+
+
+
+<!-- ===== KNAPPER ===== -->
+<button onclick="togglePopup()" class="btn btn-success m-3">
+  Åpne popup
+</button>
+
+<button id="contrastBtn" class="btn btn-warning m-3">
+  Høy kontrast
+</button>
+
+
+
+<!-- ===== PROFIL ===== -->
 <div class="container-fluid bg-1 text-center py-5">
-  <h2>Velkommen!</h2>
-  <img src="1000014923.jpg" alt="Profilbilde av Ellie" class="img-fluid rounded-circle" width="150" height="150" id="profilbilde">
-  <p class="mt-3">Her finner du informasjon om mine tjenester, i menyen kan du finne nettsidene til mine samarbeidspartnere, samt min offisielle nettside</p>
+  <h1>Velkommen!</h1>
+
+  <img src="1000014923.jpg"
+       id="profilbilde"
+       class="rounded-circle"
+       width="400">
 </div>
 
-<!-- Hvem er jeg -->
+<!-- ===== OM MEG ===== -->
 <div class="container-fluid bg-2 text-center py-5">
-  <h3>Hvem er jeg?</h3>
-  <p>Jeg er student, kunstner og kreativ håndverker som tilbyr flere tjenester.<br>
-    Fotografering og profesjonell bilderedigering<br>
-    Unike akrylmalerier på bestilling. Du kan velge farger<br>
-    Håndsydde korsetter til en rimelig pris<br>
-    Søm og kreative syprosjekter etter avtale</p>
+  <h2>Hvem er jeg?</h2>
+  <p>Student, kunstner og kreativ håndverker.</p>
 </div>
 
-<!-- 4 infobokser -->
-<div class="container my-5" role="region" aria-label="Tjenester">
+<!-- ===== KORT + KART + VIDEO ===== -->
+<div class="container my-5">
   <div class="row g-4">
 
-    <!-- Infoboks 1: Fotografi -->
-    <div class="col-12 col-sm-6 col-lg-3">
-      <div class="card h-100" role="article">
-        <img src="DSCN0506.png" class="card-img-top" alt="Fotografi eksempel" style="height:200px; object-fit:cover;">
+    <!-- Fotografi -->
+    <div class="col-md-3">
+      <div class="card h-100">
+        <img src="DSCN0506.png" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Fotografi</h5>
-          <p class="card-text">Profesjonelle bilderedigeringer og fotografering.</p>
+          <h5>Fotografi</h5>
+          <p>Portretter og event.</p>
         </div>
       </div>
     </div>
 
-    <!-- Infoboks 2: Maleri -->
-    <div class="col-12 col-sm-6 col-lg-3">
-      <div class="card h-100" role="article">
-        <img src="1000014918.jpg" class="card-img-top" alt="Akrylmaleri eksempel" style="height:200px; object-fit:cover;">
+    <!-- Maleri -->
+    <div class="col-md-3">
+      <div class="card h-100">
+        <img src="1000014918.jpg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Maleri</h5>
-          <p class="card-text">Unike akrylmalerier på bestilling, med farger du velger.</p>
+          <h5>Maleri</h5>
+          <p>Akrylmalerier.</p>
         </div>
       </div>
     </div>
 
-    <!-- Infoboks 3: Google Maps Grimstad -->
-    <div class="col-12 col-sm-6 col-lg-3">
-      <div class="card h-100" role="article">
-        <iframe 
-          src="https://www.google.com/maps/place/Grimstad/@58.3352374,8.5714963,13z/data=!3m1!4b1!4m6!3m5!1s0x4647ee6378200a3f:0x81c382f9c897a052!8m2!3d58.3421402!4d8.594457!16s%2Fg%2F11dykw0sf?hl=en&entry=ttu&g_ep=EgoyMDI2MDMxMC4wIKXMDSoASAFQAw%3D%3D" 
-          width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Kart over Grimstad med UiA"></iframe>
+    <!-- ===== KART ===== -->
+    <div class="col-md-3">
+      <div class="card h-100">
+
+        <!-- Google Maps embed -->
+        <iframe
+          src="https://www.google.com/maps?q=Grimstad,Norway&output=embed"
+          width="100%"
+          height="200"
+          style="border:0;">
+        </iframe>
+
         <div class="card-body">
-          <h5 class="card-title">Kart Grimstad</h5>
-          <p class="card-text">Viser Universitetet i Agder i Grimstad og området rundt.</p>
+          <h5>Kart</h5>
+          <p>Holder til i Grimstad by.</p>
         </div>
       </div>
     </div>
 
-    <!-- Infoboks 4: YouTube-video -->
-    <div class="col-12 col-sm-6 col-lg-3">
-      <div class="card h-100" role="article">
-        <iframe width="100%" height="200" src="https://www.youtube.com/embed/tntOCGkgt98" title="Morsomme katter" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen aria-label="YouTube-video med morsomme katter"></iframe>
+    <!-- ===== YOUTUBE ===== -->
+    <div class="col-md-3">
+      <div class="card h-100">
+
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/WqmhgxcjPUk"
+            allowfullscreen>
+          </iframe>
+        </div>
+
         <div class="card-body">
-          <h5 class="card-title">Morsomme katter</h5>
-          <p class="card-text">En liten pause med underholdende kattevideo.</p>
+          <h5>YouTube</h5>
+          <p>Jeg har fast samarbeid med bedriften TinkerMods. Foto, og markedsføring.</p>
         </div>
       </div>
     </div>
@@ -131,81 +172,78 @@
   </div>
 </div>
 
-<!-- Carousel -->
+<!-- Carousel / Bildegalleri -->
 <div id="galleriCarousel" class="carousel slide container my-5" data-bs-ride="carousel" aria-label="Bildegalleri">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="1000014937.jpg" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item">
-      <img src="1000014935.jpg" class="d-block w-100" alt="Galleri bilde 2">
-    </div>
-    <div class="carousel-item">
-      <img src="1000014933.jpg" class="d-block w-100" alt="Galleri bilde 3">
-    </div>
-    <div class="carousel-item">
-      <img src="1000014931.jpg" class="d-block w-100" alt="Galleri bilde 3">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSCN0506.png" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSCN00998.png" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSC00662.png" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSC00534.png" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSC00507.png" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
-    <div class="carousel-item active">
-      <img src="DSC00500.jpg" class="d-block w-100" alt="Galleri bilde 1">
-    </div>
+
     <div class="carousel-item active">
       <img src="DSC00478.jpg" class="d-block w-100" alt="Galleri bilde 1">
     </div>
+
+    <div class="carousel-item">
+      <img src="1000014931.jpg" class="d-block w-100" alt="Galleri bilde 2">
+    </div>
+
+    <div class="carousel-item">
+      <img src="1000014933.jpg" class="d-block w-100" alt="Galleri bilde 3">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00449.jpg" class="d-block w-100" alt="Galleri bilde 4">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00470.jpg" class="d-block w-100" alt="Galleri bilde 5">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00998.png" class="d-block w-100" alt="Galleri bilde 6">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00662.jpg" class="d-block w-100" alt="Galleri bilde 7">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00534.png" class="d-block w-100" alt="Galleri bilde 8">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00507.png" class="d-block w-100" alt="Galleri bilde 9">
+    </div>
+
+    <div class="carousel-item">
+      <img src="DSC00500.jpg" class="d-block w-100" alt="Galleri bilde 10">
+    </div>
+
   </div>
+
+  <!-- Navigasjonsknapper -->
   <button class="carousel-control-prev" type="button" data-bs-target="#galleriCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Forrige</span>
   </button>
+
   <button class="carousel-control-next" type="button" data-bs-target="#galleriCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Neste</span>
   </button>
 </div>
 
-<!-- Kontakt -->
-<main id="kontaktinfo" class="container-fluid bg-3 text-center py-5" role="main">
-  <h3>Kontakt meg</h3>
+
+<!-- ===== MIDTSTILT TEKST I KORT ===== -->
+<div class="d-flex justify-content-center align-items-center" style="height:200px;">
+  <h3 class="text-center">Tusen takk for at du besøkte siden min! Ha en fortsatt fin dag!</h3>
+</div>
+
+<!-- ===== KONTAKT ===== -->
+<div class="container-fluid bg-3 text-center py-5">
+  <h3>Kontakt</h3>
   <p>ekrogh.kontakt@gmail.com</p>
-</main>
+</div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3" role="contentinfo">
-  <p>© 2026 Ellie – Portfolio og kontaktinfo</p>
-</footer>
-
-<!-- Klikk-animasjon JS -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const bilde = document.getElementById("profilbilde");
-
-  bilde.addEventListener("click", function() {
-    bilde.classList.add("spin");
-    setTimeout(() => { bilde.classList.remove("spin"); }, 1000);
-  });
-
-  // Høy kontrast knapp
-  const contrastBtn = document.getElementById("contrastBtn");
-  contrastBtn.addEventListener("click", function() {
-    document.body.classList.toggle("high-contrast");
-  });
-});
-</script>
+<!-- ===== SCRIPT ===== -->
+<script type="module" src="script.mjs"></script>
 
 </body>
 </html>
